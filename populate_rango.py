@@ -7,7 +7,6 @@ from rango.models import Category, Page
 
 # from django.core.exceptions import ViewDoesNotExist
 
-
 def populate():
     python_pages = [
         {'title': 'Official Python Tutorial','url':'http://docs.python.org/3/tutorial/'},
@@ -45,8 +44,8 @@ def add_page(cat, title, url, views=0):
 
 def add_cat(name, views=0, likes=0):
     c = Category.objects.get_or_create(name=name)[0]
-    c.views=views
-    c.likes=likes
+    c.views =views
+    c.likes =likes
     c.save()
     return c
 
