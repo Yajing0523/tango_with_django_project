@@ -11,6 +11,8 @@ from rango.forms import UserForm, UserProfileForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate, login, logout
+from rango.models import Category, Page
+from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
 
 
 def index(request):
@@ -95,11 +97,7 @@ def register(request):
     else:
         user_form = UserForm()
         profile_form = UserProfileForm()
-    return render(request,
-    'rango/register.html',
-    context = {'user_form': user_form,
-    'profile_form': profile_form,
-    'registered': registered})
+    return render(request,'rango/register.html',context = {'user_form': user_form,'profile_form': profile_form,'registered': registered})
 
 def user_login(request):
     if request.method == 'POST':
